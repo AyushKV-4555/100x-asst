@@ -1,10 +1,13 @@
 import tempfile
 from groq import Groq
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+api_key = os.environ.get("GROQ_API_KEY")
+
+if not api_key:
+    raise ValueError("GROQ_API_KEY not found in environment variables")
+
+client = Groq(api_key=api_key)
 
 def transcribe_audio(audio_bytes: bytes) -> str:
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
