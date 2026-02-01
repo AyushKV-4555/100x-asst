@@ -1,0 +1,9 @@
+streamlit
+streamlit-mic-recorder
+groq
+langchain
+langgraph
+faiss-cpu
+gtts
+python-dotenv
+pypdf
