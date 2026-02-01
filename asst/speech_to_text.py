@@ -1,9 +1,10 @@
 import tempfile
 from groq import Groq
+import os
 from dotenv import load_dotenv
 load_dotenv()
 
-client = Groq()
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 def transcribe_audio(audio_bytes: bytes) -> str:
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
