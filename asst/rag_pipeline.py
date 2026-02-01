@@ -3,9 +3,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_groq import ChatGroq
+import os
 
 # Load & index once
-loader = PyPDFLoader("Ayush-details.pdf")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PDF_PATH = os.path.join(BASE_DIR, "Ayush-details.pdf")
+
+loader = PyPDFLoader(PDF_PATH)
 docs = loader.load()
 
 splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=100)
