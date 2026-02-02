@@ -7,7 +7,7 @@ import os
 
 # Load & index once
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PDF_PATH = os.path.join(BASE_DIR, "Ayush-details.pdf")
+PDF_PATH = os.path.join(BASE_DIR, "Ayush_and_100x_Company.pdf")
 
 loader = PyPDFLoader(PDF_PATH)
 docs = loader.load()
